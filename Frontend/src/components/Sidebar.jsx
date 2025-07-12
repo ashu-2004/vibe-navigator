@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,8 +65,8 @@ export default function Sidebar() {
           <nav className="flex-1 overflow-y-auto px-2">
             <ul className="space-y-1">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-neutral-700"
                 >
                   <svg
@@ -79,11 +80,11 @@ export default function Sidebar() {
                     <polyline points="9 22 9 12 15 12 15 22" />
                   </svg>
                   Dashboard
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/ask-ai"
+                <Link
+                  to="/ask-ai"
                   className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-neutral-700"
                 >
                   <svg
@@ -99,7 +100,7 @@ export default function Sidebar() {
                     <path d="M16 3.13a4 4 0 010 7.75" />
                   </svg>
                   Ask AI
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
