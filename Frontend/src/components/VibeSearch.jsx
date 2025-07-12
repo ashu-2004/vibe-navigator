@@ -16,12 +16,12 @@ export default function VibeSearch() {
       return;
     }
     try {
-      await fetch("http://127.0.0.1:5000/scrape", {
+      await fetch("https://vibe-navigator-1.onrender.com/scrape", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ city, category })
       });
-      await fetch("http://localhost:8080/api/import-data", { method: "POST" });
-      const suggestRes = await fetch("http://127.0.0.1:5000/suggest", {
+      await fetch("https://vibe-navigator-1.onrender.com/api/import-data", { method: "POST" });
+      const suggestRes = await fetch("https://vibe-navigator-1.onrender.com/suggest", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ city, category, tags: selectedTags })
       });
