@@ -1,0 +1,57 @@
+[
+  {
+    "city": "delhi",
+    "category": "park",
+    "name": "Nehru Park New Delhi",
+    "source": "Google Maps",
+    "reviews": [
+      "It is the best park in New Delhi with 2.78 kms long jogging synthetic track. Having slopes in the path. Popular and well maintained one. Thanks to NDMC for maintaining it in a very professional manner. Great job indeed. Frequented by …",
+      "I really like Nehru Park. It’s a great place for an evening run, and I took my friends and their dog along too. The park is clean, peaceful, and has plenty of space to walk or relax. Joey the doggo also enjoyed it a lot. A nice spot to unwind and get some fresh air.",
+      "A beautiful park in the middle of Delhi, perfect for walks, runs and picnics. It's very well maintained with a variety of trees, groves, and even some small water bodies. The big shady trees provide some respite from the sun so you can enjoy the flowers when they're in bloom."
+    ]
+  },
+  {
+    "city": "delhi",
+    "category": "park",
+    "name": "Central Park",
+    "source": "Google Maps",
+    "reviews": [
+      "It is a green space located at the heart of Connaught Place in New Delhi, built above the Rajiv Chowk Metro Station. It's a popular spot for locals and visitors alike, offering a tranquil escape amidst the bustling city, and often hosts …",
+      "Central Park is located right in the middle of Connaught Place, Delhi and it is an oasis of greenery among the bustle of the city! The park is very well-kept, and it is a beautiful escape for those who want to walk, jog or simply enjoy some …",
+      "Hello 👋 How are you? Today I visited Central Park here in Delhi, India 🇮🇳 Central Park in Delhi (officially known as Indira Priyadarshini Park) is a large urban park located in Connaught Place at the heart of New Delhi, India. …"
+    ]
+  },
+  {
+    "city": "delhi",
+    "category": "park",
+    "name": "Millennium Park",
+    "source": "Google Maps",
+    "reviews": [
+      "Fine park, comparatively clean and specious, an alternative to very crowded at the weekends Deer park and Lodhi garden.🙂 There Is a small cafeteria inside and playground for kids next to Buddhist stupa.\nWhat was unpleasant experience is their toilet.😬 …",
+      "Good place for couples and you can come with you children ticket prise 100",
+      "Millennium park is one of the well maintained and most visited parks in delhi.\nThe beautiful architecture and the view in the evening, you will definitely fall for ♥️. …"
+    ]
+  },
+  {
+    "city": "delhi",
+    "category": "park",
+    "name": "Hauz Khas District Park",
+    "source": "Google Maps",
+    "reviews": [
+      "Nice park with greenery all around. Good place for walking, jogging, doing yoga and meditation. One can simply sit under a tree and read a book or enjoy the surroundings. …",
+      "I went here in Jan 2025.\n\nThis is a great lake and park, with many people doing their exercises and other …",
+      "Hauz Khas Park is a beautiful green pocket in the heart of South Delhi that offers a rare blend of nature, history, and peace. Whether you’re a morning walker, a nature lover, or someone seeking a quiet break from the city chaos, this park …"
+    ]
+  },
+  {
+    "city": "delhi",
+    "category": "park",
+    "name": "Indraprastha Park",
+    "source": "Google Maps",
+    "reviews": [
+      "Indraprastha Park (IP Park) is a large, green space located near Sarai Kale Khan ISBT, close to Nizamuddin Metro Station and the Waste to Wonder park. It’s spacious, clean, and has decent maintenance by the staff. However, it is more …",
+      "Indraprastha Park is a spacious and well-maintained green space located along the Ring Road in Delhi. It’s a popular spot for morning walks, picnics, and relaxation, featuring lush gardens, jogging tracks, and a children's play area. The …",
+      "A very peaceful area. A fantastic place to relax with friends and family. It's a very peaceful place and it's near shanti stupa. So do visit that also."
+    ]
+  }
+]
