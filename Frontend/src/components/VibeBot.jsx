@@ -6,7 +6,7 @@ export default function VibeBot() {
 
   const handleQuery = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/ask-ai", {
+      const res = await fetch("https://vibe-navigator-1.onrender.com/ask-ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: query })
