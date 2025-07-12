@@ -1,8 +1,0 @@
-Flask
-Flask-Cors
-requests
-pymongo
-python-dotenv
-selenium
-google-generativeai
-gunicorn
