@@ -5,6 +5,4 @@ pymongo
 python-dotenv
 selenium
 google-generativeai
-
-pip install gunicorn
-pip freeze > requirements.txt
+gunicorn
