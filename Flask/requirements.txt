@@ -6,5 +6,5 @@ python-dotenv
 selenium
 google-generativeai
 
-# pip install gunicorn
-# pip freeze > requirements.txt
+pip install gunicorn
+pip freeze > requirements.txt
