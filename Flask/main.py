@@ -13,7 +13,6 @@ import json, time
 # Load .env
 load_dotenv()
 
-# Configure Gemini
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Create Flask app
