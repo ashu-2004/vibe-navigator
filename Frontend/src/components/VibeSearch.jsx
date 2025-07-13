@@ -10,28 +10,52 @@ export default function VibeSearch() {
     "aesthetic", "quiet", "lively", "nature-filled", "cozy", "budget-friendly"
   ];
 
-  const handleSearch = async () => {
-    if (!city || !category) {
-      alert("Please select both city and category");
-      return;
+  // const handleSearch = async () => {
+  //   if (!city || !category) {
+  //     alert("Please select both city and category");
+  //     return;
+  //   }
+  //   try {
+  //     await fetch("https://vibe-navigator-1.onrender.com/scrape", {
+  //       method: "POST", headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ city, category })
+  //     });
+  //     await fetch("https://vibe-navigator-1.onrender.com/api/import-data", { method: "POST" });
+  //     const suggestRes = await fetch("https://vibe-navigator-1.onrender.com/suggest", {
+  //       method: "POST", headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ city, category, tags: selectedTags })
+  //     });
+  //     const data = await suggestRes.json();
+  //     setSuggestedPlaces(data.places);
+  //   } catch (e) {
+  //     console.error(e);
+  //     alert("Something went wrong.");
+  //   }
+  // };
+const handleSearch = async () => {
+  if (!city || !category) {
+    alert("Please select both city and category");
+    return;
+  }
+  try {
+    const res = await fetch("https://vibe-navigator-1.onrender.com/vibes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, category })
+    });
+    const data = await res.json();
+
+    if (data.vibes) {
+      // Update your state to display these vibe results
+      setSuggestedPlaces(data.vibes);
+    } else {
+      alert(data.message || "No places found.");
     }
-    try {
-      await fetch("https://vibe-navigator-1.onrender.com/scrape", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ city, category })
-      });
-      await fetch("https://vibe-navigator-1.onrender.com/api/import-data", { method: "POST" });
-      const suggestRes = await fetch("https://vibe-navigator-1.onrender.com/suggest", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ city, category, tags: selectedTags })
-      });
-      const data = await suggestRes.json();
-      setSuggestedPlaces(data.places);
-    } catch (e) {
-      console.error(e);
-      alert("Something went wrong.");
-    }
-  };
+  } catch (e) {
+    console.error(e);
+    alert("Something went wrong.");
+  }
+};
 
   const toggleTag = (tag) => {
     setSelectedTags(prev =>
