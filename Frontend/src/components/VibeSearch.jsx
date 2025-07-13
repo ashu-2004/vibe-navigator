@@ -123,7 +123,7 @@ export default function VibeSearch() {
                 ))}
               </div>
               <p className="text-gray-300 text-sm mb-4">{place.summary}</p>
-              <p className="text-xs text-purple-400">Source: {place.source}</p>
+              <p className="text-xs text-purple-400">Source: Google Map</p>
             </div>
           ))}
         </div>
