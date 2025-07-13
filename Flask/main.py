@@ -265,7 +265,7 @@ Example:
                 tags = []
 
             vibe_results.append({
-                "locationName": place,
+                "name": place,
                 "summary": summary,
                 "tags": tags
             })
