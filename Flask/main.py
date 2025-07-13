@@ -59,31 +59,6 @@ def ask_ai():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    
-    
-# @app.route('/suggest', methods=['POST'])
-# def suggest_places():
-#     try:
-#         data = request.get_json()
-#         city = data.get('city')
-#         category = data.get('category')
-#         tags = data.get('tags', [])
-
-#         # Build prompt
-#         prompt = f"""
-#         You are VibeBot, a local vibe expert.
-#         Recommend some {category} in {city} that match these vibes: {', '.join(tags)}.
-#         Reply in a friendly style and list each place briefly with emojis, mood tags, and a short summary.
-#         """
-
-#         model = genai.GenerativeModel('gemini-1.5-flash')
-#         response = model.generate_content(prompt)
-
-#         # You could also parse / structure, but for now just return text
-#         return jsonify({'answer': response.text})
-
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
 
 import re
 import json
@@ -229,6 +204,72 @@ def scrape_places():
     print(f"🎉 Scraped {len(places)} places saved to maps_places.json")
 
     return jsonify({'places': places})
+
+from static_places import static_places
+
+@app.route('/vibes', methods=['POST'])
+def get_vibes():
+    try:
+        data = request.get_json()
+        city = data.get('city').title()
+        category = data.get('category').lower()
+        print(f"Received request for city: {city}, category: {category}")
+
+        if not city or not category:
+            return jsonify({'error': 'City and category are required'}), 400
+
+        model = genai.GenerativeModel('gemini-1.5-flash')
+
+        # ✅ Get real place names from static_places
+        places_list = static_places.get(city, {}).get(category, [])
+        if not places_list:
+            return jsonify({'message': f'No places found for {category} in {city}.'}), 200
+
+        vibe_results = []
+
+        for place in places_list:
+            prompt = f"""
+You are a vibe summariser AI for a place recommendation system.
+
+Return ONLY a raw JSON object (no markdown, no explanation) with:
+
+- "summary": a short vibe summary with emojis for the place '{place}' in {city}.
+- "tags": a list of up to 5 keywords describing the vibe (no hashtags).
+
+Example:
+{{
+  "summary": "Your short summary here",
+  "tags": ["tag1", "tag2", "tag3"]
+}}
+"""
+
+            response = model.generate_content(prompt)
+            print(f"Raw Gemini response for {place}:", response.text)
+
+            try:
+                cleaned_text = response.text.strip()
+                if cleaned_text.startswith(""):
+                    cleaned_text = cleaned_text.split("")[1].strip()
+                    if cleaned_text.startswith("json"):
+                        cleaned_text = cleaned_text[4:].strip()
+                vibe_data = json.loads(cleaned_text)
+                summary = vibe_data.get('summary', '')
+                tags = vibe_data.get('tags', [])
+            except json.JSONDecodeError:
+                summary = response.text  # fallback
+                tags = []
+
+            vibe_results.append({
+                "locationName": place,
+                "summary": summary,
+                "tags": tags
+            })
+
+        return jsonify({"vibes": vibe_results}), 200
+
+    except Exception as e:
+        print("Error in /vibes route:", str(e))
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
