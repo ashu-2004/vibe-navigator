@@ -21,8 +21,6 @@
 
 Vibe Navigator is an AI-powered web application that helps users **explore the real vibe of places in their city** by summarizing user-generated reviews from Google Maps and Reddit using Gemini AI.
 
-This project was built for **[Hackathon name, eg. Smart India Hackathon 2025]** to demonstrate:
-
 - Real-time data scraping  
 - Generative AI summarization  
 - Seamless full-stack integration
@@ -145,9 +143,10 @@ vibe_navigator/
 ✅ Build an admin dashboard to manage scraped data and AI prompts
 ✅ Deploy scraper microservice on AWS EC2 for continuous data update
 
+
 👥 **Team**
 Name | 	Role | 	Contact
-Mayuri Falke	| Full Stack Developer, AI Integrator | 	(https://www.linkedin.com/in/mayuri-falke-7890a1291/)
+Ashwini Thikole	| Full Stack Developer, AI Integrator | 	(https://www.linkedin.com/in/ashwini-thikole-27a50b291/)
 
 
 
