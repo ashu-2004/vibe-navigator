@@ -58,7 +58,7 @@ Vibe Navigator is an AI-powered web application that helps users **explore the r
  1. **Clone the repository**
 
 ```bash
-git clone https://github.com/mayurifalke/vibe-navigator1.git
+git clone https://github.com/ashu-2004/vibe-navigator.git
 cd vibe_navigator1
 
 
@@ -111,10 +111,10 @@ Start React development server:
   npm run dev
 
 🌐 **Deployment**
-The project is deployed on Render and Vercel:
+The project is deployed on Render:
 
-🔗 Live Frontend URL:- https://vibe-navigator1.vercel.app/
-🔗 Live Backend API  https://vibe-navigator1.onrender.com/
+🔗 Live Frontend URL:- https://vibe-navigator-2.onrender.com/
+🔗 Live Backend API :-  https://vibe-navigator-1.onrender.com
 
 Note: Scraping functionality requires Selenium with Chrome, which is not supported on Render free tier. Currently, scraping is 
 tested locally and processed data is served from MongoDB Atlas.
@@ -148,5 +148,8 @@ vibe_navigator/
 Name | 	Role | 	Contact
 Ashwini Thikole	| Full Stack Developer, AI Integrator | 	(https://www.linkedin.com/in/ashwini-thikole-27a50b291/)
 
+📝 Additional Note
+I implemented scraping of live reviews using Selenium, which works perfectly when run locally. However, since Selenium requires a browser runtime not supported on Render free tier, the live deployment uses static data stored in MongoDB Atlas to demonstrate AI summaries.
 
+In the demo video, the scraping feature is showcased running on localhost; but in the deployed version, summaries are generated from this static data.
 
