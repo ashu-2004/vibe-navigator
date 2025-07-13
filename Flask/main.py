@@ -226,7 +226,7 @@ def get_vibes():
 
         vibe_results = []
 
-        for place in places_list:
+        for place in places_list[:3]:
             prompt = f"""
 You are a vibe summariser AI for a place recommendation system.
 
@@ -241,21 +241,27 @@ Example:
   "tags": ["tag1", "tag2", "tag3"]
 }}
 """
-
             response = model.generate_content(prompt)
             print(f"Raw Gemini response for {place}:", response.text)
 
             try:
                 cleaned_text = response.text.strip()
-                if cleaned_text.startswith(""):
-                    cleaned_text = cleaned_text.split("")[1].strip()
-                    if cleaned_text.startswith("json"):
-                        cleaned_text = cleaned_text[4:].strip()
+
+                # Remove ```json or ``` fences if present
+                if cleaned_text.startswith("```json"):
+                    cleaned_text = cleaned_text[len("```json"):].strip()
+                elif cleaned_text.startswith("```"):
+                    cleaned_text = cleaned_text[len("```"):].strip()
+
+                if cleaned_text.endswith("```"):
+                    cleaned_text = cleaned_text[:-3].strip()
+
                 vibe_data = json.loads(cleaned_text)
                 summary = vibe_data.get('summary', '')
                 tags = vibe_data.get('tags', [])
-            except json.JSONDecodeError:
-                summary = response.text  # fallback
+            except json.JSONDecodeError as e:
+                print(f"JSON decoding failed for {place}: {e}")
+                summary = response.text  # fallback to raw text
                 tags = []
 
             vibe_results.append({
@@ -269,6 +275,9 @@ Example:
     except Exception as e:
         print("Error in /vibes route:", str(e))
         return jsonify({'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
