@@ -44,6 +44,7 @@ const handleSearch = async () => {
       body: JSON.stringify({ city, category })
     });
     const data = await res.json();
+console.log("Response data:", data);
 
     if (data.vibes) {
       // Update your state to display these vibe results
