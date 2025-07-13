@@ -149,7 +149,6 @@ Name | 	Role | 	Contact
 Ashwini Thikole	| Full Stack Developer, AI Integrator | 	(https://www.linkedin.com/in/ashwini-thikole-27a50b291/)
 
 📝 Additional Note
-I implemented scraping of live reviews using Selenium, which works perfectly when run locally. However, since Selenium requires a browser runtime not supported on Render free tier, the live deployment uses static data stored in MongoDB Atlas to demonstrate AI summaries.
-
-In the demo video, the scraping feature is showcased running on localhost; but in the deployed version, summaries are generated from this static data.
+I implemented scraping of live reviews using Selenium, which works perfectly when run locally. 
+However, since Selenium requires a browser runtime not supported on Render free tier, the live deployment uses static data stored in MongoDB Atlas to demonstrate AI summaries.In the demo video, the scraping feature is showcased running on localhost; but in the deployed version, summaries are generated from this static data.
 
